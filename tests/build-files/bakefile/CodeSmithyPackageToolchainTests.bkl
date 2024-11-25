@@ -1,3 +1,5 @@
+codesmithyidepath = envvar("CODESMITHYIDE_ROOT");
+import $(codesmithyidepath)/package-toolchains/include/CodeSmithy/PackageToolchains.bkl;
 ishikopath = envvar("ISHIKO_CPP_ROOT");
 import $(ishikopath)/test-framework/include/Ishiko/TestFramework.bkl;
 
@@ -9,7 +11,7 @@ vs2019.solutionfile = ../vc16/CodeSmithyPackageToolchainsTests.sln;
 vs2017.solutionfile = ../vc15/CodeSmithyPackageToolchainsTests.sln;
 vs2015.solutionfile = ../vc14/CodeSmithyPackageToolchainsTests.sln;
 
-program CodeSmithyPackageToolchainsTests : IshikoTestFramework
+program CodeSmithyPackageToolchainsTests : CodeSmithyPackageToolchains, IshikoTestFramework
 {
     if ($(toolset) == gnu)
     {
