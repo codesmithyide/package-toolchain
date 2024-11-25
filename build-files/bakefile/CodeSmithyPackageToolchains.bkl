@@ -30,5 +30,12 @@ library CodeSmithyPackageToolchains
     headers
     {
         ../../include/CodeSmithy/PackageToolchains.hpp
+        ../../include/CodeSmithy/PackageToolchains/DebianPackageToolchain.hpp
+        ../../include/CodeSmithy/PackageToolchains/linkoptions.hpp
+    }
+
+    sources
+    {
+        ../../src/DebianPackageToolchain.cpp
     }
 }
