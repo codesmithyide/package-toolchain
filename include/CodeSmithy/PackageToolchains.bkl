@@ -1,0 +1,20 @@
+setting CODESMITHYIDE_PACKAGETOOLCHAINS_ROOT
+{
+    help = "Path to the CodeSmithyIDE/PackageToolchains installation";
+    default = '$(CODESMITHYIDE_ROOT)/package-toolchains';
+}
+
+template CodeSmithyPackageToolchains
+{
+    includedirs += $(CODESMITHYIDE_PACKAGETOOLCHAINS_ROOT)/include;
+
+    if ($(toolset) == gnu)
+    {
+        libdirs += $(CODESMITHYIDE_PACKAGETOOLCHAINS_ROOT)/lib;
+    }
+
+    if ($(toolset) != gnu)
+    {
+        libdirs += $(CODESMITHYIDE_PACKAGETOOLCHAINS_ROOT)/lib/$(arch);
+    }
+}
