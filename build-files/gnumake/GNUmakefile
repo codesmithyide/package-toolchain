@@ -56,9 +56,12 @@ $(if $(_builddir_error),$(error Failed to create build directory: $(_builddir_er
 endif
 all: ../bakefile/../../lib/lib$(if $(call _equal,$(config),Debug),CodeSmithyPackageToolchains-d,CodeSmithyPackageToolchains).a
 
-../bakefile/../../lib/lib$(if $(call _equal,$(config),Debug),CodeSmithyPackageToolchains-d,CodeSmithyPackageToolchains).a: $(_builddir)CodeSmithyPackageToolchains_DebianPackageToolchain.o
-	$(AR) rc $@ $(_builddir)CodeSmithyPackageToolchains_DebianPackageToolchain.o
+../bakefile/../../lib/lib$(if $(call _equal,$(config),Debug),CodeSmithyPackageToolchains-d,CodeSmithyPackageToolchains).a: $(_builddir)CodeSmithyPackageToolchains_DebianPackageControlFile.o $(_builddir)CodeSmithyPackageToolchains_DebianPackageToolchain.o
+	$(AR) rc $@ $(_builddir)CodeSmithyPackageToolchains_DebianPackageControlFile.o $(_builddir)CodeSmithyPackageToolchains_DebianPackageToolchain.o
 	$(RANLIB) $@
+
+$(_builddir)CodeSmithyPackageToolchains_DebianPackageControlFile.o: ../../src/DebianPackageControlFile.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I../../include/CodeSmithy/PackageToolchains -std=c++11 ../../src/DebianPackageControlFile.cpp
 
 $(_builddir)CodeSmithyPackageToolchains_DebianPackageToolchain.o: ../../src/DebianPackageToolchain.cpp
 	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I../../include/CodeSmithy/PackageToolchains -std=c++11 ../../src/DebianPackageToolchain.cpp

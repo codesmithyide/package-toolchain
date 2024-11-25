@@ -150,10 +150,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\src\DebianPackageControlFile.cpp" />
     <ClCompile Include="..\..\src\DebianPackageToolchain.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\CodeSmithy\PackageToolchains.hpp" />
+    <ClInclude Include="..\..\include\CodeSmithy\PackageToolchains\DebianPackageControlFile.hpp" />
     <ClInclude Include="..\..\include\CodeSmithy\PackageToolchains\DebianPackageToolchain.hpp" />
     <ClInclude Include="..\..\include\CodeSmithy\PackageToolchains\linkoptions.hpp" />
   </ItemGroup>
