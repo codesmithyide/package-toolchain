@@ -25,8 +25,14 @@ program CodeSmithyPackageToolchainsTests : CodeSmithyPackageToolchains, IshikoTe
         archs = x86 x86_64;
     }
 
+    headers
+    {
+        ../../src/DebianPackageToolchainTests.hpp
+    }
+
     sources
     {
+        ../../src/DebianPackageToolchainTests.cpp
         ../../src/main.cpp
     }
 }

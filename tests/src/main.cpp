@@ -1,6 +1,7 @@
 // SPDX-FileCopyrightText: 2020-2024 Xavier Leclercq
 // SPDX-License-Identifier: MIT
 
+#include "CodeSmithy/PackageToolchains/linkoptions.hpp"
 #include <Ishiko/TestFramework.hpp>
 #include <exception>
 

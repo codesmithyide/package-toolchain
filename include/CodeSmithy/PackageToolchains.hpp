@@ -4,6 +4,7 @@
 #ifndef GUARD_CODESMITHYIDE_PACKAGETOOLCHAINS_HPP
 #define GUARD_CODESMITHYIDE_PACKAGETOOLCHAINS_HPP
 
+#include "PackageToolchains/DebianPackageToolchain.hpp"
 #include "PackageToolchains/linkoptions.hpp"
 
 #endif
