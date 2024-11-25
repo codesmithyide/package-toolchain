@@ -12,6 +12,12 @@ jobs:
       - run:
           name: Build
           command: cd /workspace/projects/codesmithyide/package-toolchains/build-files/gnumake && make
+      - run:
+          name: Test build
+          command: cd /workspace/projects/codesmithyide/package-toolchains/tests/build-files/gnumake && make
+      - run:
+          name: Run the tests
+          command: cd /workspace/projects/codesmithyide/package-toolchains/tests/build-files/gnumake && ./CodeSmithyPackageToolchainsTests
   build:
     docker:
       - image: codesmithy/gcc-build-prerequisites:0.13.0
@@ -24,6 +30,13 @@ jobs:
       - run:
           name: Build
           command: cd /workspace/projects/codesmithyide/package-toolchains/build-files/gnumake && make
+      - run:
+          name: Test build
+          command: cd /workspace/projects/codesmithyide/package-toolchains/tests/build-files/gnumake && make
+      - run:
+          name: Run the tests
+          command: cd /workspace/projects/codesmithyide/package-toolchains/tests/build-files/gnumake && ./CodeSmithyPackageToolchainsTests
+
 workflows:
   version: 2
   continuous_build:
