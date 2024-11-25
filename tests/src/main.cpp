@@ -1,6 +1,7 @@
 // SPDX-FileCopyrightText: 2020-2024 Xavier Leclercq
 // SPDX-License-Identifier: MIT
 
+#include "DebianPackageControlFileTests.hpp"
 #include "DebianPackageToolchainTests.hpp"
 #include "CodeSmithy/PackageToolchains/linkoptions.hpp"
 #include <Ishiko/TestFramework.hpp>
@@ -19,6 +20,7 @@ int main(int argc, char* argv[])
         TestHarness the_test_harness("CodeSmithyPackageToolchains Library Tests", configuration);
 
         TestSequence& the_tests = the_test_harness.tests();
+        the_tests.append<DebianPackageControlFileTests>();
         the_tests.append<DebianPackageToolchainTests>();
 
         return the_test_harness.run();
