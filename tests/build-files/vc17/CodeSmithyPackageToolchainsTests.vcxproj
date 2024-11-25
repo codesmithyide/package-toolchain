@@ -156,10 +156,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\src\DebianPackageControlFileTests.cpp" />
     <ClCompile Include="..\..\src\DebianPackageToolchainTests.cpp" />
     <ClCompile Include="..\..\src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\src\DebianPackageControlFileTests.hpp" />
     <ClInclude Include="..\..\src\DebianPackageToolchainTests.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

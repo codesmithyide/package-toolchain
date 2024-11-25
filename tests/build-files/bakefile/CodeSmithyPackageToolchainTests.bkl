@@ -27,11 +27,13 @@ program CodeSmithyPackageToolchainsTests : CodeSmithyPackageToolchains, IshikoTe
 
     headers
     {
+        ../../src/DebianPackageControlFileTests.hpp
         ../../src/DebianPackageToolchainTests.hpp
     }
 
     sources
     {
+        ../../src/DebianPackageControlFileTests.cpp
         ../../src/DebianPackageToolchainTests.cpp
         ../../src/main.cpp
     }
