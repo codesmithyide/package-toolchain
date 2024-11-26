@@ -1,0 +1,5 @@
+Package: debian-package-1
+Version: 0.0.1
+Maintainer: The Maintainer
+Architecture: amd64
+Description: A Short Description
