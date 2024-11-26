@@ -42,6 +42,9 @@ endif
 #      ISHIKO_CPP_IO_ROOT            Path to the Ishiko/C++ IO installation
 #      ISHIKO_CPP_BOOST_ROOT         Path to the Boost installation
 #      ISHIKO_CPP_FILESYSTEM_ROOT    Path to the Ishiko/C++ FileSystem installation
+#      ISHIKO_CPP_MEMORY_ROOT        Path to the Ishiko/C++ Memory installation
+#      ISHIKO_CPP_TEXT_ROOT          Path to the Ishiko/C++ Text installation
+#      ISHIKO_CPP_PROCESS_ROOT       Path to the Ishiko/C++ Process installation
 
 # Use "make RANLIB=''" for platforms without ranlib.
 RANLIB ?= ranlib
@@ -78,6 +81,12 @@ ISHIKO_CPP_IO_ROOT ?= $(ISHIKO_CPP_ROOT)/io
 ISHIKO_CPP_BOOST_ROOT ?= $(BOOST_ROOT)
 # Path to the Ishiko/C++ FileSystem installation
 ISHIKO_CPP_FILESYSTEM_ROOT ?= $(ISHIKO_CPP_ROOT)/filesystem
+# Path to the Ishiko/C++ Memory installation
+ISHIKO_CPP_MEMORY_ROOT ?= $(ISHIKO_CPP_ROOT)/memory
+# Path to the Ishiko/C++ Text installation
+ISHIKO_CPP_TEXT_ROOT ?= $(ISHIKO_CPP_ROOT)/text
+# Path to the Ishiko/C++ Process installation
+ISHIKO_CPP_PROCESS_ROOT ?= $(ISHIKO_CPP_ROOT)/process
 
 # ------------
 
@@ -88,10 +97,10 @@ all: ../bakefile/../../lib/lib$(if $(call _equal,$(config),Debug),CodeSmithyPack
 	$(RANLIB) $@
 
 $(_builddir)CodeSmithyPackageToolchains_DebianPackageControlFile.o: ../../src/DebianPackageControlFile.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I$(ISHIKO_CPP_BASEPLATFORM_ROOT)/include -I$(ISHIKO_CPP_ERRORS_ROOT)/include -I$(ISHIKO_CPP_IO_ROOT)/include -I$(ISHIKO_CPP_BOOST_ROOT)/include -I$(ISHIKO_CPP_FILESYSTEM_ROOT)/include -I../../include/CodeSmithy/PackageToolchains -std=c++11 ../../src/DebianPackageControlFile.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I$(ISHIKO_CPP_BASEPLATFORM_ROOT)/include -I$(ISHIKO_CPP_ERRORS_ROOT)/include -I$(ISHIKO_CPP_IO_ROOT)/include -I$(ISHIKO_CPP_BOOST_ROOT)/include -I$(ISHIKO_CPP_FILESYSTEM_ROOT)/include -I$(ISHIKO_CPP_MEMORY_ROOT)/include -I$(ISHIKO_CPP_TEXT_ROOT)/include -I$(ISHIKO_CPP_PROCESS_ROOT)/include -I../../include/CodeSmithy/PackageToolchains -std=c++11 ../../src/DebianPackageControlFile.cpp
 
 $(_builddir)CodeSmithyPackageToolchains_DebianPackageToolchain.o: ../../src/DebianPackageToolchain.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I$(ISHIKO_CPP_BASEPLATFORM_ROOT)/include -I$(ISHIKO_CPP_ERRORS_ROOT)/include -I$(ISHIKO_CPP_IO_ROOT)/include -I$(ISHIKO_CPP_BOOST_ROOT)/include -I$(ISHIKO_CPP_FILESYSTEM_ROOT)/include -I../../include/CodeSmithy/PackageToolchains -std=c++11 ../../src/DebianPackageToolchain.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I$(ISHIKO_CPP_BASEPLATFORM_ROOT)/include -I$(ISHIKO_CPP_ERRORS_ROOT)/include -I$(ISHIKO_CPP_IO_ROOT)/include -I$(ISHIKO_CPP_BOOST_ROOT)/include -I$(ISHIKO_CPP_FILESYSTEM_ROOT)/include -I$(ISHIKO_CPP_MEMORY_ROOT)/include -I$(ISHIKO_CPP_TEXT_ROOT)/include -I$(ISHIKO_CPP_PROCESS_ROOT)/include -I../../include/CodeSmithy/PackageToolchains -std=c++11 ../../src/DebianPackageToolchain.cpp
 
 clean:
 	rm -f $(_builddir)*.o
