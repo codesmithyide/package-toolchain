@@ -13,7 +13,7 @@ namespace CodeSmithy
     public:
         DebianPackageToolchain();
 
-        void build();
+        void build(const std::string& source_path);
 
     private:
         std::string m_dpkg_path;

@@ -8,9 +8,11 @@ using namespace CodeSmithy;
 
 namespace
 {
-    Ishiko::CommandLine CreateBuildCommandLine(const std::string& dpkg_path)
+    Ishiko::CommandLine CreateBuildCommandLine(const std::string& dpkg_path, const std::string& source_path)
     {
         Ishiko::CommandLine command_line(dpkg_path);
+        command_line.appendArgument("--build");
+        command_line.appendArgument(source_path);
         return command_line;
     }
 }
@@ -20,9 +22,9 @@ DebianPackageToolchain::DebianPackageToolchain()
 {
 }
 
-void DebianPackageToolchain::build()
+void DebianPackageToolchain::build(const std::string& source_path)
 {
-    Ishiko::CommandLine command_line = CreateBuildCommandLine(m_dpkg_path);
+    Ishiko::CommandLine command_line = CreateBuildCommandLine(m_dpkg_path, source_path);
     Ishiko::ChildProcessBuilder process_builder(command_line, Ishiko::CurrentEnvironment());
     Ishiko::ChildProcess process = process_builder.start();
     process.waitForExit();

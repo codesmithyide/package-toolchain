@@ -3,6 +3,7 @@
 
 #include "DebianPackageToolchainTests.hpp"
 #include "CodeSmithy/PackageToolchains/DebianPackageToolchain.hpp"
+#include <boost/filesystem.hpp>
 
 using namespace CodeSmithy;
 
@@ -27,8 +28,12 @@ void DebianPackageToolchainTests::BuildTest1(Ishiko::Test& test)
     test.skip();
 #endif
 
+    const boost::filesystem::path& package_source_path = test.context().getOutputPath("debian-package-1");
+    test.utils().copyFile("${context.data}/debian-package-1/DEBIAN/control", "${context.output}/debian-package-1/DEBIAN/control");
+    test.utils().copyFile("${context.data}/debian-package-1/usr/bin/dummy_executable", "${context.output}/debian-package-1/usr/bin/dummy_executable");
+
     DebianPackageToolchain toolchain;
-    toolchain.build();
+    toolchain.build(package_source_path.string());
 
     ISHIKO_TEST_PASS();
 }
