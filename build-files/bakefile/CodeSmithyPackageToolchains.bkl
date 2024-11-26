@@ -1,3 +1,6 @@
+ishikopath = envvar("ISHIKO_CPP_ROOT");
+import $(ishikopath)/filesystem/include/Ishiko/FileSystem.bkl;
+
 toolsets = gnu vs2022 vs2019 vs2017 vs2015;
 
 gnu.makefile = ../gnumake/GNUmakefile;
@@ -6,7 +9,7 @@ vs2019.solutionfile = ../vc16/CodeSmithyPackageToolchains.sln;
 vs2017.solutionfile = ../vc15/CodeSmithyPackageToolchains.sln;
 vs2015.solutionfile = ../vc14/CodeSmithyPackageToolchains.sln;
 
-library CodeSmithyPackageToolchains
+library CodeSmithyPackageToolchains : IshikoFileSystem
 {
     includedirs += ../../include/CodeSmithy/PackageToolchains;
 
