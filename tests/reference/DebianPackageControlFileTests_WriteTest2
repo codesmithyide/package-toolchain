@@ -1,0 +1,5 @@
+Package: DebianPackageControlFileTests_WriteTest2
+Version: 0.0.1
+Maintainer: The Maintainer
+Architecture: amd64
+Description: A Short Description

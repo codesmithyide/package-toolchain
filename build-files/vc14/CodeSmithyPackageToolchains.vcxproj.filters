@@ -20,6 +20,9 @@
     <ClInclude Include="..\..\include\CodeSmithy\PackageToolchains.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\include\CodeSmithy\PackageToolchains\DebianPackageControlFile.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\include\CodeSmithy\PackageToolchains\DebianPackageToolchain.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -28,6 +31,9 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\src\DebianPackageControlFile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\src\DebianPackageToolchain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

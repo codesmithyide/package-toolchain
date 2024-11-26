@@ -1,10 +1,13 @@
+ishikopath = envvar("ISHIKO_CPP_ROOT");
+import $(ishikopath)/filesystem/include/Ishiko/FileSystem.bkl;
+
 setting CODESMITHYIDE_PACKAGETOOLCHAINS_ROOT
 {
     help = "Path to the CodeSmithyIDE/PackageToolchains installation";
     default = '$(CODESMITHYIDE_ROOT)/package-toolchains';
 }
 
-template CodeSmithyPackageToolchains
+template CodeSmithyPackageToolchains : IshikoFileSystem
 {
     includedirs += $(CODESMITHYIDE_PACKAGETOOLCHAINS_ROOT)/include;
 
