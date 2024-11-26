@@ -16,7 +16,7 @@ program CodeSmithyPackageToolchainsTests : CodeSmithyPackageToolchains, IshikoTe
     if ($(toolset) == gnu)
     {
         cxx-compiler-options = "-std=c++11";
-        libs += IshikoTestFramework IshikoTestFrameworkCore IshikoConfiguration IshikoXML IshikoFileSystem IshikoIO IshikoProcess IshikoTime IshikoText IshikoErrors IshikoBasePlatform;
+        libs += CodeSmithyPackageToolchains IshikoTestFramework IshikoTestFrameworkCore IshikoConfiguration IshikoDiff IshikoXML IshikoFileSystem IshikoIO IshikoProcess IshikoTime IshikoText IshikoErrors IshikoBasePlatform;
         libs += fmt boost_filesystem;
     }
 
@@ -27,11 +27,13 @@ program CodeSmithyPackageToolchainsTests : CodeSmithyPackageToolchains, IshikoTe
 
     headers
     {
+        ../../src/DebianPackageControlFileTests.hpp
         ../../src/DebianPackageToolchainTests.hpp
     }
 
     sources
     {
+        ../../src/DebianPackageControlFileTests.cpp
         ../../src/DebianPackageToolchainTests.cpp
         ../../src/main.cpp
     }
