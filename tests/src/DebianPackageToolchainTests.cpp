@@ -23,6 +23,10 @@ void DebianPackageToolchainTests::ConstructorTest1(Ishiko::Test& test)
 
 void DebianPackageToolchainTests::BuildTest1(Ishiko::Test& test)
 {
+#if ISHIKO_OS == ISHIKO_OS_WINDOWS
+    test.skip();
+#endif
+
     DebianPackageToolchain toolchain;
     toolchain.build();
 
