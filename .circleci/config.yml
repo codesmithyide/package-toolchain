@@ -17,10 +17,22 @@ jobs:
           command: cd /workspace/projects/codesmithyide/package-toolchains/tests/build-files/gnumake && make
       - run:
           name: Run the tests
-          command: cd /workspace/projects/codesmithyide/package-toolchains/tests/build-files/gnumake && ./CodeSmithyPackageToolchainsTests
+          command: cd /workspace/projects/codesmithyide/package-toolchains/tests/build-files/gnumake && ./CodeSmithyPackageToolchainsTests --persistent-storage=/build/test-output --junit-xml-test-report=/build/test-results/CodeSmithyPackageToolchains.xml
+      - store_artifacts:
+          name: Upload test output files
+          path: /build/test-output
+          destination: test-output
+      - store_artifacts:
+          name: Upload test report files
+          path: /build/test-results/CodeSmithyPackageToolchains.xml
+          destination: CodeSmithyPackageToolchains-test-results.xml
+      - store_test_results:
+          name: Upload test results to CircleCI
+          path: /build/test-results/CodeSmithyPackageToolchains.xml
+
   build:
     docker:
-      - image: codesmithy/gcc-build-prerequisites:0.13.0
+      - image: codesmithy/gcc-build-prerequisites:0.14.0
     steps:
       - run:
           name: "Set CODESMITHYIDE_ROOT environment variables"
@@ -35,8 +47,18 @@ jobs:
           command: cd /workspace/projects/codesmithyide/package-toolchains/tests/build-files/gnumake && make
       - run:
           name: Run the tests
-          command: cd /workspace/projects/codesmithyide/package-toolchains/tests/build-files/gnumake && ./CodeSmithyPackageToolchainsTests
-
+          command: cd /workspace/projects/codesmithyide/package-toolchains/tests/build-files/gnumake && ./CodeSmithyPackageToolchainsTests --persistent-storage=/build/test-output --junit-xml-test-report=/build/test-results/CodeSmithyPackageToolchains.xml
+      - store_artifacts:
+          name: Upload test output files
+          path: /build/test-output
+          destination: test-output
+      - store_artifacts:
+          name: Upload test report files
+          path: /build/test-results/CodeSmithyPackageToolchains.xml
+          destination: CodeSmithyPackageToolchains-test-results.xml
+      - store_test_results:
+          name: Upload test results to CircleCI
+          path: /build/test-results/CodeSmithyPackageToolchains.xml
 workflows:
   version: 2
   continuous_build:
