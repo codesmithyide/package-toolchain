@@ -34,5 +34,6 @@ void DebianPackageToolchainTests::BuildTest1(Ishiko::Test& test)
     DebianPackageToolchain toolchain;
     toolchain.build(package_source_path.string());
 
+    ISHIKO_TEST_FAIL_IF_OUTPUT_AND_REFERENCE_FILES_NEQ("debian-package-1.deb");
     ISHIKO_TEST_PASS();
 }
