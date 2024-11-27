@@ -28,9 +28,8 @@ void DebianPackageToolchainTests::BuildTest1(Ishiko::Test& test)
     test.skip();
 #endif
 
+    test.utils().copy("${context.data}/debian-package-1", "${context.output}/debian-package-1");
     const boost::filesystem::path& package_source_path = test.context().getOutputPath("debian-package-1");
-    test.utils().copyFile("${context.data}/debian-package-1/DEBIAN/control", "${context.output}/debian-package-1/DEBIAN/control");
-    test.utils().copyFile("${context.data}/debian-package-1/usr/bin/dummy_executable", "${context.output}/debian-package-1/usr/bin/dummy_executable");
 
     DebianPackageToolchain toolchain;
     toolchain.build(package_source_path.string());
