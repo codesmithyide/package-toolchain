@@ -29,7 +29,6 @@ jobs:
       - store_test_results:
           name: Upload test results to CircleCI
           path: /build/test-results/CodeSmithyPackageToolchains.xml
-
   build:
     docker:
       - image: codesmithy/gcc-build-prerequisites:0.14.0
